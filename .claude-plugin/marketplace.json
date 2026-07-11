@@ -1,0 +1,22 @@
+{
+  "name": "tq1-skills",
+  "owner": {
+    "name": "Tq-1"
+  },
+  "metadata": {
+    "description": "Open, testable Agent Skills by Tq-1",
+    "version": "1.0.0"
+  },
+  "plugins": [
+    {
+      "name": "traceable-research",
+      "description": "Turn research questions into source-grounded, decision-ready briefs.",
+      "version": "1.0.0",
+      "source": "./",
+      "strict": false,
+      "skills": [
+        "./skills/traceable-research"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "name": "traceable-research",
+  "description": "Traceable Evidence Synthesis Toolkit: evidence-first research, source grading, contradiction handling, citation auditing, and decision-ready briefs.",
+  "author": {
+    "name": "Tq-1"
+  },
+  "homepage": "https://github.com/Tq-1/test",
+  "repository": "https://github.com/Tq-1/test",
+  "license": "MIT",
+  "skills": "./skills"
+}

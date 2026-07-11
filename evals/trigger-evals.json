@@ -1,0 +1,28 @@
+{
+  "skill": "traceable-research",
+  "version": "1.0.0",
+  "should_trigger": [
+    "Research the best password manager for a five-person nonprofit. Compare current pricing, security model, and migration risk, then recommend one.",
+    "Fact-check the claim that remote work always reduces productivity. Use recent primary evidence and show disagreements.",
+    "Survey the literature on retrieval-augmented generation evaluation and produce a cited research brief.",
+    "Investigate whether this vendor's uptime claims are consistent with its incident history.",
+    "Compare the latest stable releases of three Python package managers and identify which fits a monorepo.",
+    "I need a decision memo on entering the Taiwanese EV charging market. Separate facts from inference.",
+    "Verify whether this policy is currently in force and list its effective date and exceptions.",
+    "Research why these two credible sources report different market-size numbers.",
+    "请调研五款本地优先笔记软件，核对当前价格和同步机制，并明确推荐一款。",
+    "请核查“某项科研结论已经形成共识”这一说法，优先原始论文和综述。",
+    "帮我做一份带来源、能直接用于决策的行业调研，标出证据冲突。",
+    "这个产品榜单可信吗？请追溯每个核心说法的一手来源。"
+  ],
+  "should_not_trigger": [
+    "Rewrite this paragraph to sound friendlier.",
+    "Translate the following email into Chinese.",
+    "Write a science-fiction story about a librarian on Mars.",
+    "Summarize only the PDF I uploaded; do not use external sources.",
+    "What is 17 multiplied by 23?",
+    "Refactor this function without researching external APIs.",
+    "把这段话改得更口语化。",
+    "根据我给出的会议记录整理待办，不需要外部核验。"
+  ]
+}

@@ -1,0 +1,69 @@
+{
+  "skill": "traceable-research",
+  "version": "1.0.0",
+  "cases": [
+    {
+      "name": "current-product-comparison",
+      "prompt": "Compare three current team note-taking products for a five-person research group.",
+      "must": [
+        "states plan/tier, currency or region, and verification date",
+        "uses official pricing or product documentation for specifications",
+        "seeks independent evidence for usability or reliability",
+        "separates facts, inference, and recommendation",
+        "states what could change the recommendation"
+      ],
+      "must_not": [
+        "treats affiliate rankings as sole evidence",
+        "mixes free and paid tiers without saying so",
+        "uses 'latest' without a concrete date"
+      ]
+    },
+    {
+      "name": "contested-scientific-claim",
+      "prompt": "Assess whether a scientific finding is established consensus.",
+      "must": [
+        "defines the exact claim and population",
+        "uses primary studies plus synthesis or consensus evidence",
+        "records peer-review status and material limitations",
+        "describes credible disagreement rather than vote-counting papers",
+        "calibrates confidence"
+      ],
+      "must_not": [
+        "equates several agreeing papers with field-wide consensus",
+        "hides null or contradictory results",
+        "calls a narrative search systematic"
+      ]
+    },
+    {
+      "name": "policy-status",
+      "prompt": "Determine whether a policy is currently in force.",
+      "must": [
+        "states jurisdiction",
+        "distinguishes enactment, publication, and effective dates",
+        "checks amendments, exceptions, and superseding authority",
+        "uses primary legal or official text",
+        "states informational-not-legal-advice boundary when appropriate"
+      ],
+      "must_not": [
+        "relies on an undated blog summary",
+        "assumes a proposal is enacted",
+        "omits the verification date"
+      ]
+    },
+    {
+      "name": "insufficient-evidence",
+      "prompt": "Research a niche claim for which no direct evidence is available.",
+      "must": [
+        "answers supportable subparts",
+        "marks the central claim unverified",
+        "describes the missing evidence",
+        "does not invent citations",
+        "offers the safest next verification step"
+      ],
+      "must_not": [
+        "manufactures a confident conclusion",
+        "cites search snippets as evidence"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "name": "tq1-skills",
+  "interface": {
+    "displayName": "Tq-1 Skills"
+  },
+  "plugins": [
+    {
+      "name": "traceable-research",
+      "source": {
+        "source": "local",
+        "path": "./"
+      },
+      "category": "Education & Research",
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      }
+    }
+  ]
+}

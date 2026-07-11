@@ -1,0 +1,35 @@
+{
+  "name": "traceable-research",
+  "version": "1.0.0",
+  "description": "Traceable Evidence Synthesis Toolkit for evidence-first research and decision-ready briefs.",
+  "author": {
+    "name": "Tq-1",
+    "url": "https://github.com/Tq-1"
+  },
+  "homepage": "https://github.com/Tq-1/test",
+  "repository": "https://github.com/Tq-1/test",
+  "license": "MIT",
+  "keywords": [
+    "research",
+    "fact-checking",
+    "citations",
+    "evidence",
+    "decision-making"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "T.E.S.T.",
+    "shortDescription": "Evidence-first research and citation audit",
+    "longDescription": "Turn ambiguous questions into traceable, source-grounded, decision-ready briefs.",
+    "developerName": "Tq-1",
+    "category": "Education & Research",
+    "capabilities": [
+      "Read"
+    ],
+    "websiteURL": "https://github.com/Tq-1/test",
+    "defaultPrompt": [
+      "Use T.E.S.T. to research this question and produce a decision-ready brief.",
+      "Use T.E.S.T. to fact-check this claim, including conflicting evidence."
+    ]
+  }
+}
