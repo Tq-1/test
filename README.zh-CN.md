@@ -1,3 +1,5 @@
+<!-- 此文件与 README.md 保持同步；README.md 用于让 GitHub 仓库首页默认显示中文。 -->
+
 # T.E.S.T. — 可追溯证据综合工具包
 
 <p align="center">
@@ -6,9 +8,17 @@
 </p>
 
 <p align="center">
-  <a href="README.md">English</a> ·
+  <a href="README.zh-CN.md">简体中文</a> ·
+  <a href="README.en.md">English</a> ·
   <a href="skills/traceable-research/SKILL.md">Skill 指令</a> ·
   <a href="CONTRIBUTING.md">参与贡献</a>
+</p>
+
+<p align="center">
+  <img alt="Agent Skills" src="https://img.shields.io/badge/Agent%20Skills-compatible-111827">
+  <img alt="Python 3.10+" src="https://img.shields.io/badge/Python-3.10%2B-3776AB">
+  <img alt="Dependencies" src="https://img.shields.io/badge/dependencies-zero-success">
+  <img alt="License" src="https://img.shields.io/badge/license-MIT-blue">
 </p>
 
 ---
@@ -35,14 +45,14 @@
 
 ## 它为什么不只是一段提示词
 
-- **清晰的触发边界**：明确什么时候使用、什么时候不使用。
-- **可重复的流程**：十个研究阶段，带停止条件和质量门槛。
-- **证据模型**：同时处理来源质量、主张状态、独立性、时效性和冲突。
-- **实用脚本**：零第三方依赖的 Python 工具，可创建工作区并审计研究产物。
-- **渐进式加载**：核心指令保持紧凑，细节放在按需读取的参考文件和模板中。
-- **评测材料**：中英文触发测试与输出质量测试。
-- **多客户端兼容**：遵循 Agent Skills 结构，同时提供 Claude 与 Codex 插件清单。
-- **自动化验证**：CI 检查脚本、清单、引用与 Skill 结构。
+- **清晰的触发边界：** 明确什么时候使用、什么时候不使用。
+- **可重复的流程：** 十个研究阶段，带停止条件和质量门槛。
+- **证据模型：** 同时处理来源质量、主张状态、独立性、时效性和冲突。
+- **实用脚本：** 零第三方依赖的 Python 工具，可创建工作区并审计研究产物。
+- **渐进式加载：** 核心指令保持紧凑，细节放在按需读取的参考文件和模板中。
+- **评测材料：** 中英文触发测试与输出质量测试。
+- **多客户端兼容：** 遵循 Agent Skills 结构，同时提供 Claude 与 Codex 插件清单。
+- **自动化验证：** CI 检查脚本、清单、引用与 Skill 结构。
 
 ## 快速安装
 
@@ -69,7 +79,7 @@ codex plugin marketplace add Tq-1/test
 
 ### 手动安装
 
-将自包含目录 [`skills/traceable-research`](skills/traceable-research) 复制到你所使用的 Agent 的 skills 目录中。
+将自包含目录 [`skills/traceable-research`](skills/traceable-research) 复制到所使用 Agent 的 skills 目录中。
 
 ## 使用示例
 
@@ -105,11 +115,40 @@ python -m unittest discover -s tests -v
 | 模式 | 适用场景 | 默认要求 |
 |---|---|---|
 | `quick` | 低风险问题、快速摸底 | 少量直接且较新的来源 |
-| `standard` | 大多数比较与报告 | 一手来源 + 独立反证来源 |
-| `deep` | 文献综述、战略判断 | 更广覆盖、明确说明饱和度和冲突 |
-| `high-stakes` | 法律、医疗、金融、安全或不可逆决策 | 官方/一手证据、更强交叉验证、明确局限 |
+| `standard` | 大多数比较与报告 | 一手来源加独立反证来源 |
+| `deep` | 文献综述、战略判断 | 更广覆盖，明确说明饱和度和冲突 |
+| `high-stakes` | 法律、医疗、金融、安全或不可逆决策 | 官方或一手证据、更强交叉验证、明确局限 |
 
 来源数量是目标，不是凑数指标。当新增材料不再改变结论、已经触及证据上限，或达到约定研究预算时，应停止继续搜索。
+
+## 仓库结构
+
+```text
+.
+├── README.md                         # GitHub 默认中文首页
+├── README.zh-CN.md                   # 规范中文 README
+├── README.en.md                      # English README
+├── SKILL.md                          # 根目录兼容入口
+├── skills/traceable-research/
+│   ├── SKILL.md                      # 规范 Agent Skill
+│   ├── scripts/
+│   │   ├── init_workspace.py
+│   │   ├── audit_research.py
+│   │   └── validate_skill.py
+│   ├── references/
+│   │   ├── research-standard.md
+│   │   └── output-contract.md
+│   └── assets/
+│       ├── research-plan.md
+│       ├── source-ledger.csv
+│       ├── claim-ledger.csv
+│       └── research-brief.md
+├── evals/
+├── tests/
+├── .claude-plugin/
+├── .codex-plugin/
+└── .github/workflows/
+```
 
 ## 完成标准
 
@@ -134,10 +173,6 @@ python -m unittest discover -s tests -v
 - 先日期，再谈“最新”
 - 先审计，再交付
 - 不确定性必须显式表达
-
-## 仓库故事
-
-这个仓库原本是 Tq-1 在 2021 年创建的第一个小型 GitHub 测试仓库。现在它被正式重构为 **T.E.S.T.**，原始说明保存在 [`HISTORY.md`](HISTORY.md) 中。新的名称代表 **Traceable Evidence Synthesis Toolkit（可追溯证据综合工具包）**。
 
 ## 许可证
 
