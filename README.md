@@ -1,14 +1,17 @@
-# T.E.S.T. — Traceable Evidence Synthesis Toolkit
+<!-- 此文件与 README.md 保持同步；README.md 用于让 GitHub 仓库首页默认显示中文。 -->
+
+# T.E.S.T. — 可追溯证据综合工具包
 
 <p align="center">
-  <strong>Turn vague questions into source-grounded, decision-ready briefs.</strong><br>
-  A universal Agent Skill for research, comparison, verification, literature review, and current-information analysis.
+  <strong>把模糊问题转化为有来源、可核验、可决策的研究简报。</strong><br>
+  一个适用于调研、比较、核查、文献综述与时效性信息分析的通用 Agent Skill。
 </p>
 
 <p align="center">
   <a href="README.zh-CN.md">简体中文</a> ·
-  <a href="skills/traceable-research/SKILL.md">Skill instructions</a> ·
-  <a href="CONTRIBUTING.md">Contributing</a>
+  <a href="README.en.md">English</a> ·
+  <a href="skills/traceable-research/SKILL.md">Skill 指令</a> ·
+  <a href="CONTRIBUTING.md">参与贡献</a>
 </p>
 
 <p align="center">
@@ -20,40 +23,40 @@
 
 ---
 
-## Why T.E.S.T.?
+## 为什么做 T.E.S.T.？
 
-Most weak research answers fail before the writing starts. They search without a plan, treat snippets as evidence, cite secondary summaries instead of original sources, hide conflicting evidence, or attach citations after drafting.
+很多低质量研究并不是写作能力不够，而是研究流程从一开始就有问题：没有先定义问题，拿搜索摘要当证据，只引用二手转述，忽略互相冲突的材料，或者先写结论再补引用。
 
-**T.E.S.T.** makes the research process explicit and auditable:
+**T.E.S.T.** 把研究过程变成一条清晰、可审计的流水线：
 
 ```text
-Question → Scope → Source map → Source ledger → Claim ledger
-         → Contradiction check → Citation audit → Decision-ready brief
+问题 → 范围 → 来源地图 → 来源账本 → 主张账本
+     → 冲突检查 → 引用审计 → 可决策简报
 ```
 
-It is intentionally domain-neutral. Use it for:
+它不限定具体领域，可用于：
 
-- product and tool comparisons;
-- scientific or technical literature surveys;
-- market, policy, company, and industry research;
-- fact-checking and claim verification;
-- travel, hobby, and personal decision research;
-- any task where recency, uncertainty, or conflicting sources matters.
+- 产品、软件、服务和方案比较；
+- 科研与技术文献综述；
+- 市场、政策、公司和行业调研；
+- 事实核查与说法验证；
+- 旅行、兴趣爱好和个人选择；
+- 任何强调时效性、不确定性或证据冲突的任务。
 
-## What makes this a real Skill
+## 它为什么不只是一段提示词
 
-- **Precise activation rules**: strong “use when” and “do not use when” boundaries.
-- **Repeatable procedure**: a ten-stage workflow with stop conditions and quality gates.
-- **Evidence model**: source quality, claim status, independence, recency, and contradiction handling.
-- **Reusable tooling**: zero-dependency Python scripts to create a workspace and audit the result.
-- **Progressive disclosure**: concise core instructions plus focused references and templates.
-- **Evaluation assets**: trigger tests and output-quality cases in English and Chinese.
-- **Cross-client packaging**: Agent Skills layout plus Claude and Codex plugin manifests.
-- **CI validation**: automated tests for scripts, manifests, references, and skill structure.
+- **清晰的触发边界：** 明确什么时候使用、什么时候不使用。
+- **可重复的流程：** 十个研究阶段，带停止条件和质量门槛。
+- **证据模型：** 同时处理来源质量、主张状态、独立性、时效性和冲突。
+- **实用脚本：** 零第三方依赖的 Python 工具，可创建工作区并审计研究产物。
+- **渐进式加载：** 核心指令保持紧凑，细节放在按需读取的参考文件和模板中。
+- **评测材料：** 中英文触发测试与输出质量测试。
+- **多客户端兼容：** 遵循 Agent Skills 结构，同时提供 Claude 与 Codex 插件清单。
+- **自动化验证：** CI 检查脚本、清单、引用与 Skill 结构。
 
-## Quick start
+## 快速安装
 
-### Install with the open Skills CLI
+### 使用通用 Skills CLI
 
 ```bash
 npx skills add Tq-1/test --skill traceable-research
@@ -72,66 +75,62 @@ npx skills add Tq-1/test --skill traceable-research
 codex plugin marketplace add Tq-1/test
 ```
 
-Then open the plugin directory, search for **T.E.S.T.**, and install it.
+然后在插件目录搜索 **T.E.S.T.** 并安装。
 
-### Manual installation
+### 手动安装
 
-Copy the self-contained [`skills/traceable-research`](skills/traceable-research) directory into the skills directory used by your agent.
+将自包含目录 [`skills/traceable-research`](skills/traceable-research) 复制到所使用 Agent 的 skills 目录中。
 
-## Use it
-
-Invoke the skill directly or describe a research task naturally:
+## 使用示例
 
 ```text
-Use T.E.S.T. to compare local-first note-taking apps for a research team.
-Separate verified facts from inference, include current pricing dates, and recommend one.
+请用 T.E.S.T. 比较几款适合五人科研团队的本地优先笔记软件。
+区分已核实事实与推断，注明价格核验日期，并给出一个明确推荐。
 ```
 
-```text
-请用 T.E.S.T. 调研“AI 编程代理对中型团队的实际收益”，
-优先一手资料，标出证据冲突，并给出可执行的采用建议。
-```
-
-For a multi-source task, initialize a research workspace:
+复杂任务可先初始化工作区：
 
 ```bash
 python skills/traceable-research/scripts/init_workspace.py \
-  "Which local-first note app best fits a five-person research team?" \
+  "哪款本地优先笔记软件最适合五人科研团队？" \
   --mode standard \
   --out research/note-apps
 ```
 
-After filling the ledgers and brief, run the audit:
+填写来源账本、主张账本和简报后进行审计：
 
 ```bash
 python skills/traceable-research/scripts/audit_research.py research/note-apps --strict
 ```
 
-Validate the repository itself:
+验证仓库本身：
 
 ```bash
 python skills/traceable-research/scripts/validate_skill.py .
 python -m unittest discover -s tests -v
 ```
 
-## Research modes
+## 四种研究模式
 
-| Mode | Best for | Default evidence target |
+| 模式 | 适用场景 | 默认要求 |
 |---|---|---|
-| `quick` | Orientation and low-stakes questions | A small set of direct, recent sources |
-| `standard` | Most comparisons and reports | Primary sources plus independent challenge sources |
-| `deep` | Literature reviews and strategic decisions | Broad coverage, explicit saturation and contradiction analysis |
-| `high-stakes` | Legal, medical, financial, safety, or irreversible decisions | Primary/official evidence, stronger triangulation, explicit limitations |
+| `quick` | 低风险问题、快速摸底 | 少量直接且较新的来源 |
+| `standard` | 大多数比较与报告 | 一手来源加独立反证来源 |
+| `deep` | 文献综述、战略判断 | 更广覆盖，明确说明饱和度和冲突 |
+| `high-stakes` | 法律、医疗、金融、安全或不可逆决策 | 官方或一手证据、更强交叉验证、明确局限 |
 
-Source counts are targets, not quotas. T.E.S.T. stops when additional searching no longer changes the conclusion, when the evidence ceiling is reached, or when the agreed research budget is exhausted.
+来源数量是目标，不是凑数指标。当新增材料不再改变结论、已经触及证据上限，或达到约定研究预算时，应停止继续搜索。
 
-## Repository layout
+## 仓库结构
 
 ```text
 .
-├── SKILL.md                         # Root compatibility entry
+├── README.md                         # GitHub 默认中文首页
+├── README.zh-CN.md                   # 规范中文 README
+├── README.en.md                      # English README
+├── SKILL.md                          # 根目录兼容入口
 ├── skills/traceable-research/
-│   ├── SKILL.md                     # Canonical Agent Skill
+│   ├── SKILL.md                      # 规范 Agent Skill
 │   ├── scripts/
 │   │   ├── init_workspace.py
 │   │   ├── audit_research.py
@@ -145,42 +144,36 @@ Source counts are targets, not quotas. T.E.S.T. stops when additional searching 
 │       ├── claim-ledger.csv
 │       └── research-brief.md
 ├── evals/
-│   ├── trigger-evals.json
-│   └── output-evals.json
-├── tests/test_tools.py
+├── tests/
 ├── .claude-plugin/
 ├── .codex-plugin/
-└── .agents/plugins/
+└── .github/workflows/
 ```
 
-## Output quality contract
+## 完成标准
 
-A finished T.E.S.T. brief should make it easy to answer:
+一份合格的 T.E.S.T. 简报应当让读者快速回答：
 
-1. What is the answer, in one paragraph?
-2. Which claims are verified, supported, contested, inferred, or unresolved?
-3. Which sources directly support each important claim?
-4. How current is the evidence?
-5. What changed because contradictory evidence was considered?
-6. What should the reader do next?
-7. What would most likely change the recommendation?
+1. 一段话结论是什么？
+2. 哪些主张属于已核实、受支持、有争议、推断或未解决？
+3. 每个重要主张由哪些来源直接支持？
+4. 证据核验到什么日期？
+5. 处理冲突证据后，结论发生了什么变化？
+6. 读者下一步应该做什么？
+7. 哪条新证据最可能改变当前建议？
 
-The bundled auditor checks structure and referential integrity. It cannot decide whether a source is truthful or whether a conclusion is wise; those remain research judgments.
+内置审计器负责检查结构和引用关系，但它不能替代研究者对来源真实性和结论合理性的判断。
 
-## Design principles
+## 设计原则
 
-- **Evidence before prose**
-- **Primary before derivative**
-- **Claims before conclusions**
-- **Contradictions before confidence**
-- **Dates before “latest”**
-- **Audits before delivery**
-- **Uncertainty stated, never hidden**
+- 先证据，后行文
+- 先一手，后二手
+- 先主张，后结论
+- 先冲突，后置信
+- 先日期，再谈“最新”
+- 先审计，再交付
+- 不确定性必须显式表达
 
-## Project history
+## 许可证
 
-This repository was Tq-1’s first small GitHub test repository in 2021. It has been deliberately repurposed as **T.E.S.T.**, with the original note preserved in [`HISTORY.md`](HISTORY.md). The name now stands for **Traceable Evidence Synthesis Toolkit**.
-
-## License
-
-MIT. See [`LICENSE`](LICENSE).
+MIT，详见 [`LICENSE`](LICENSE)。
